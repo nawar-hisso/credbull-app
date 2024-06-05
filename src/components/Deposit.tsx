@@ -14,8 +14,12 @@ const Deposit: React.FC<Props> = ({ signer, address }) => {
   const [buttonTitle, setButtonTitle] = useState<string>("Deposit");
   const [allowance, setAllowance] = useState<number>(0);
 
-  const tokenContractAddress = "0xE5a25C884834abC78B031DdAdc169481E0D06173";
-  const vaultContractAddress = "0x09a49ed78643439531B1D344EdEa5FfDD92cA6eF";
+  const tokenContractAddress =
+    import.meta.env.VITE_CREDBULL_TOKEN_ADDRESS ||
+    "0xE5a25C884834abC78B031DdAdc169481E0D06173";
+  const vaultContractAddress =
+    import.meta.env.VITE_CREDBULL_VAULT_ADDRESS ||
+    "0x09a49ed78643439531B1D344EdEa5FfDD92cA6eF";
 
   const tokenContract = useMemo(
     () => new ethers.Contract(tokenContractAddress, tokenAbi, signer),

@@ -10,7 +10,9 @@ const WhitelistManager: React.FC<Props> = ({ signer }) => {
   const [address, setAddress] = useState<string>("");
   const [status, setStatus] = useState<string>("");
 
-  const contractAddress = "0x09a49ed78643439531B1D344EdEa5FfDD92cA6eF";
+  const contractAddress =
+    import.meta.env.VITE_CREDBULL_TOKEN_ADDRESS ||
+    "0x09a49ed78643439531B1D344EdEa5FfDD92cA6eF";
   const vaultContract = new ethers.Contract(contractAddress, vaultAbi, signer);
 
   const addToWhitelist = async () => {
