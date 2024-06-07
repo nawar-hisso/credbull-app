@@ -12,7 +12,7 @@ const Withdraw: React.FC<Props> = ({ signer, address }) => {
   const [status, setStatus] = useState<string>("");
 
   const contractAddress =
-    import.meta.env.VITE_CREDBULL_TOKEN_ADDRESS ||
+    import.meta.env.VITE_CREDBULL_VAULT_ADDRESS ||
     "0x09a49ed78643439531B1D344EdEa5FfDD92cA6eF";
   const vaultContract = new ethers.Contract(contractAddress, vaultAbi, signer);
 
